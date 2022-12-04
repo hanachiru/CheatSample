@@ -29,7 +29,7 @@ namespace Editor
 
             if (GUILayout.Button("Encrypt"))
             {
-                if(!File.Exists(_targetFilePath))
+                if (!File.Exists(_targetFilePath))
                 {
                     Debug.Log($"対象ファイルが存在しません。 : {_targetFilePath}");
                     return;
@@ -40,20 +40,6 @@ namespace Editor
                 File.WriteAllBytes(_targetFilePath, encryptedFile);
                 AssetDatabase.Refresh();
                 Debug.Log("Encrypted");
-            }
-
-            if (GUILayout.Button("Decrypt"))
-            {
-                if(!File.Exists(_targetFilePath))
-                {
-                    Debug.Log($"対象ファイルが存在しません。 : {_targetFilePath}");
-                    return;
-                }
-                
-                //var fileStream = File.Open(_targetFilePath, FileMode.Open);
-                var file = File.ReadAllBytes(_targetFilePath);
-                var decryptedFile = FileEncrypter.Decrypy(file, Key);
-                Debug.Log(decryptedFile);
             }
         }
     }
