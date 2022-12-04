@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1018351969
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: efbc2934199bdc21d383dde71eda6071
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Sprites/AssetBundle/a.png
+- Assets/Sprites/AssetBundle/pu.png
+Dependencies: []
