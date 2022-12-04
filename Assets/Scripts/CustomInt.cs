@@ -3,14 +3,13 @@ using UnityEngine;
 using Random = System.Random;
 
 [Serializable]
-public class CustomInt : IFormattable, IEquatable<CustomInt>, IComparable<CustomInt>, IComparable<int>, IComparable
+public struct CustomInt : IFormattable, IEquatable<CustomInt>, IComparable<CustomInt>, IComparable<int>, IComparable
 {
     private static readonly Random Random = new Random();
     
     [SerializeField] private int key;
     [SerializeField] private int fakeValue;
-
-    public CustomInt() : this(GenerateKey(), 0){}
+    
     public CustomInt(int value) : this(GenerateKey(), value){}
 
     public CustomInt(int key, int value)
@@ -49,13 +48,8 @@ public class CustomInt : IFormattable, IEquatable<CustomInt>, IComparable<Custom
         => Add(input, -1);
     
     public override bool Equals(object obj)
-    {
-        var other = obj as CustomInt;
+        => obj is CustomInt customInt && Equals(customInt);
 
-        if (other == null) return false;
-        return Equals(other);
-    }
-    
     public override int GetHashCode()
         => Decrypt(key, fakeValue).GetHashCode();
 
